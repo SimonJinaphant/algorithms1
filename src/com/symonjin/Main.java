@@ -1,16 +1,14 @@
 package com.symonjin;
 
-import com.symonjin.connectivity.Connectivity;
-import com.symonjin.connectivity.QuickUnionBySize;
-import com.symonjin.connectivity.QuickUnionByRank;
-import com.symonjin.collections.LinkedStack;
+import com.symonjin.collections.Stack;
+import com.symonjin.collections.StaticStack;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        LinkedStack<Integer> stack = new LinkedStack<>();
+        Stack<Integer> stack = new StaticStack<>(100);
 
         for(int i = 0; i < 100; i++){
             stack.push(i);

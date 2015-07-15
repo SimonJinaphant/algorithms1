@@ -2,6 +2,7 @@ package com.symonjin.collections;
 
 public class LinkedStack<T> extends Stack<T> {
 
+    Node head;
     int size = 0;
 
     @Override
@@ -49,6 +50,13 @@ public class LinkedStack<T> extends Stack<T> {
         return size;
     }
 
+    protected class Node{
+        T element;
+        Node next;
 
+        protected Node(T element){
+            this.element = element;
+        }
+    }
 
 }
