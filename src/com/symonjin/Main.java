@@ -3,22 +3,22 @@ package com.symonjin;
 import com.symonjin.connectivity.Connectivity;
 import com.symonjin.connectivity.QuickUnionBySize;
 import com.symonjin.connectivity.QuickUnionByRank;
-
+import com.symonjin.collections.LinkedStack;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Connectivity con = new QuickUnionByRank(5);
-        con.union(1, 3);
-        con.union(2, 3);
+        LinkedStack<Integer> stack = new LinkedStack<>();
 
-        if(con.find(1,2)){
-            System.out.println("Connected");
-        }else{
-            System.out.println("nope");
+        for(int i = 0; i < 100; i++){
+            stack.push(i);
         }
 
+        while(!stack.isEmpty()){
+            System.out.println("Stack: " + stack.top());
+            stack.pop();
+        }
     }
 }
