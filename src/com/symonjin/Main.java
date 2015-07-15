@@ -1,14 +1,12 @@
 package com.symonjin;
 
-import com.symonjin.collections.Stack;
-import com.symonjin.collections.StaticStack;
-
+import com.symonjin.collections.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Stack<Integer> stack = new StaticStack<>(100);
+        Stack<Integer> stack = new DynamicStack<>();
 
         for(int i = 0; i < 100; i++){
             stack.push(i);
@@ -18,5 +16,6 @@ public class Main {
             System.out.println("Stack: " + stack.top());
             stack.pop();
         }
+
     }
 }
