@@ -2,9 +2,9 @@ package com.symonjin.connectivity;
 
 public class QuickFind extends Connectivity{
 
-    public QuickFind(int size){
-        parents = new int[size];
-        for (int i = 0; i < size; i++){
+    public QuickFind(int capacity){
+        parents = new int[capacity];
+        for (int i = 0; i < capacity; i++){
             parents[i] = i;
         }
     }

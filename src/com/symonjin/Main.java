@@ -1,16 +1,18 @@
 package com.symonjin;
 
-import com.symonjin.connectivity.QuickFind;
+import com.symonjin.connectivity.Connectivity;
+import com.symonjin.connectivity.QuickUnionBySize;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
-        QuickFind qf = new QuickFind(5);
-        qf.union(1,3);
-        qf.union(2,3);
+        Connectivity con = new QuickUnionBySize(5);
+        con.union(1, 3);
+        con.union(2, 3);
 
-        if(qf.find(1,2)){
+        if(con.find(1,2)){
             System.out.println("Connected");
         }else{
             System.out.println("nope");
