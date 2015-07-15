@@ -2,13 +2,15 @@ package com.symonjin;
 
 import com.symonjin.connectivity.Connectivity;
 import com.symonjin.connectivity.QuickUnionBySize;
+import com.symonjin.connectivity.QuickUnionByRank;
+
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Connectivity con = new QuickUnionBySize(5);
+        Connectivity con = new QuickUnionByRank(5);
         con.union(1, 3);
         con.union(2, 3);
 
