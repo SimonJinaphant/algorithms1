@@ -44,4 +44,13 @@ public class QuickUnionBySize extends Connectivity {
         return p;
     }
 
+    private int findRootPC(int p){
+        if(p != parents[p]){
+            //Path compression: all nodes point to root in the end
+            parents[p] = findRootPC(p);
+        }
+
+        return p;
+    }
+
 }
