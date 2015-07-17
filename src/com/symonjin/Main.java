@@ -6,15 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Stack<Integer> stack = new DynamicStack<>();
+        Queue<Integer> queue = new LinkedQueue<>();
 
         for(int i = 0; i < 100; i++){
-            stack.push(i);
+            queue.enqueue(i);
         }
 
-        while(!stack.isEmpty()){
-            System.out.println("Stack: " + stack.top());
-            stack.pop();
+        while(!queue.isEmpty()){
+            queue.dequeue();
         }
 
     }
