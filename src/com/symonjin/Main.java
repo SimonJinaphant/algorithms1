@@ -13,7 +13,7 @@ public class Main {
         }
         System.out.println();
 
-        NSort.bubbleSort(arr);
+        NLogNSort.mergeSort(arr);
         for(Integer i : arr){
             System.out.print(i + ", ");
         }
