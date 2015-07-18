@@ -2,7 +2,7 @@ package com.symonjin.algorithms;
 
 public class Search {
 
-    public static <T> int binarySearch(Comparable[] input, T key){
+    public static <T> int binarySearch(Comparable<T>[] input, T key){
 
         int lowerBound = 0;
         int upperBound = input.length - 1;
