@@ -13,12 +13,12 @@ public class Main {
         }
         System.out.println();
 
-        NSort.selectionSort(arr);
-
+        NSort.bubbleSort(arr);
         for(Integer i : arr){
             System.out.print(i + ", ");
         }
         System.out.println();
+
         //System.out.println(Sums.threeSumsProblem(arr));
 
     }
