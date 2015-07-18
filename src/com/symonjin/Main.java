@@ -1,21 +1,22 @@
 package com.symonjin;
 
-import com.symonjin.collections.*;
+import com.symonjin.algorithms.Search;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Queue<Integer> queue = new DynamicQueue<>();
+        Integer[] arr = {50,234,10,20,10,39,0};
+        Arrays.sort(arr);
 
-        for(int i = 0; i < 100; i++){
-            queue.enqueue(i);
+        for(Integer i : arr){
+            System.out.print(i+", ");
         }
+        System.out.println();
 
-        while(!queue.isEmpty()){
-            queue.dequeue();
-        }
 
+        System.out.println(Search.binarySearch(arr, 0));
 
     }
 }
