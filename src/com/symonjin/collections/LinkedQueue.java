@@ -7,12 +7,12 @@ public class LinkedQueue<T> extends Queue<T> {
     int size;
 
     @Override
-    public void enqueue(T element){
-        System.out.println("Enqueuing: "+element);
-        if(size == 0){
+    public void enqueue(T element) {
+        System.out.println("Enqueuing: " + element);
+        if (size == 0) {
             head = new Node(element);
             tail = head;
-        }else{
+        } else {
             Node newNode = new Node(element);
             tail.next = newNode;
             tail = newNode;
@@ -21,8 +21,8 @@ public class LinkedQueue<T> extends Queue<T> {
     }
 
     @Override
-    public T dequeue(){
-        if(size == 0){
+    public T dequeue() {
+        if (size == 0) {
             System.err.println("Queue is already empty");
             return null;
         }
@@ -33,26 +33,26 @@ public class LinkedQueue<T> extends Queue<T> {
         head = newHead;
         size--;
 
-        System.out.println("Dequeuing "+value);
+        System.out.println("Dequeuing " + value);
 
         return value;
     }
 
     @Override
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    private class Node{
+    private class Node {
         T element;
         Node next;
 
-        Node(T element){
+        Node(T element) {
             this.element = element;
         }
     }

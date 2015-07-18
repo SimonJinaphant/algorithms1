@@ -6,10 +6,10 @@ public class LinkedStack<T> extends Stack<T> {
     int size = 0;
 
     @Override
-    public void push(T data){
-        if(isEmpty()){
+    public void push(T data) {
+        if (isEmpty()) {
             head = new Node(data);
-        }else{
+        } else {
             Node n = new Node(data);
             n.next = head;
             head = n;
@@ -19,8 +19,8 @@ public class LinkedStack<T> extends Stack<T> {
     }
 
     @Override
-    public void pop(){
-        if(!isEmpty()){
+    public void pop() {
+        if (!isEmpty()) {
             Node retrieved = head;
             head = retrieved.next;
 
@@ -31,30 +31,30 @@ public class LinkedStack<T> extends Stack<T> {
     }
 
     @Override
-    public T top(){
-        if(isEmpty()){
+    public T top() {
+        if (isEmpty()) {
             System.err.println("Stack is empty");
             return null;
-        }else{
+        } else {
             return head.element;
         }
     }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     @Override
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
-    protected class Node{
+    protected class Node {
         T element;
         Node next;
 
-        protected Node(T element){
+        protected Node(T element) {
             this.element = element;
         }
     }
