@@ -1,6 +1,6 @@
 package com.symonjin.sorting;
 
-public abstract class Sort {
+public class Sort {
 
     public static <T extends Comparable<? super T>> int partition(
             T[] input, int lower, int upper){
@@ -27,7 +27,7 @@ public abstract class Sort {
         return left.compareTo(right) == -1;
     }
 
-    protected static <T extends Comparable<? super T>> void swap(T[] input, int a, int b) {
+    public static <T extends Comparable<? super T>> void swap(T[] input, int a, int b) {
         T temp = input[a];
         input[a] = input[b];
         input[b] = temp;
