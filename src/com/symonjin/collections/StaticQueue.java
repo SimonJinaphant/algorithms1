@@ -1,10 +1,16 @@
 package com.symonjin.collections;
 
-public class StaticQueue<T> extends Queue<T> {
 
+/*
+    An implementation of a Queue via a static array
+
+    Maintaining the FIFO characteristic:
+    We have a head pointer to "re-adjust" the array's starting point
+ */
+public class StaticQueue<T> extends Queue<T> {
     T[] elements;
     int size = 0;
-    int head = 0;
+    int headPointer = 0;
 
     public StaticQueue(int capacity) {
         elements = (T[]) new Object[capacity];
@@ -13,11 +19,13 @@ public class StaticQueue<T> extends Queue<T> {
     @Override
     public void enqueue(T element) {
         if (size >= elements.length) {
-            System.err.println("Capacity reached, cannot enqueue");
+            System.err.println("Queue is already at max capacity");
             return;
+
         } else {
-            System.out.println("Enqueuing " + element);
-            elements[(head + size) % elements.length] = element;
+            //Insert the element at the tail of the array
+            //If the tail is going out of bounds, wrap it around
+            elements[(headPointer + size) % elements.length] = element;
             size++;
         }
 
@@ -25,12 +33,19 @@ public class StaticQueue<T> extends Queue<T> {
 
     @Override
     public T dequeue() {
-        T data = elements[head];
-        elements[head] = null;
-        head = (head + 1) % elements.length;
+        //Retrieve the data stored at the head since we're delete the node
+        T data = elements[headPointer];
+
+        /*
+            Remove the head element and increment the head pointer;
+            making the right adjacent element next for removal.
+
+            If the increment goes out of bounds, make it wrap around
+        */
+        elements[headPointer] = null;
+        headPointer = (headPointer + 1) % elements.length;
         size--;
 
-        System.out.println("Dequeing " + data);
         return data;
     }
 

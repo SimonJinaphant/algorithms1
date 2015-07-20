@@ -21,7 +21,6 @@ public class DynamicQueue<T> extends Queue<T> {
         if (size >= elements.length) {
             System.out.println("Increasing size from " + size + " to " + size * 2);
             T[] newElements = Arrays.copyOf(elements, size * 2);
-            elements = null;
             elements = newElements;
 
         } else {

@@ -1,9 +1,14 @@
 package com.symonjin.collections;
 
-
+/*
+    An implementation of a Stack via a static array
+ */
 public class StaticStack<T> extends Stack<T> {
 
     T[] elements;
+
+    //Keeps track of the current size, along with the index
+    //of the next available spot in the stack
     int size = 0;
 
     public StaticStack(int capacity) {
@@ -13,7 +18,7 @@ public class StaticStack<T> extends Stack<T> {
     @Override
     public void push(T data) {
         if (size >= elements.length) {
-            System.err.println("Stack at max capacity");
+            System.err.println("Stack is already at max capacity");
             return;
         }
 
@@ -23,7 +28,7 @@ public class StaticStack<T> extends Stack<T> {
     @Override
     public void pop() {
         if (isEmpty()) {
-            System.err.println("Stack is empty...");
+            System.err.println("Stack is empty, no element to pop");
             return;
         }
 
@@ -33,7 +38,7 @@ public class StaticStack<T> extends Stack<T> {
     @Override
     public T top() {
         if (isEmpty()) {
-            System.err.println("Stack is empty");
+            System.err.println("Stack is empty, no element to pop");
             return null;
         } else {
             return elements[size - 1];
