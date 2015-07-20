@@ -1,5 +1,9 @@
 package com.symonjin.algorithms;
 
+import com.symonjin.sorting.NLogNSort;
+
+import java.util.Arrays;
+
 public class Search {
 
     public static <T> int binarySearch(Comparable<T>[] input, T key) {
@@ -23,6 +27,26 @@ public class Search {
         }
 
         return -1;
+    }
+
+
+    public static <T extends Comparable<? super T>> T quickSelect(T[] rawInput, int key){
+        //Copy elements to preserve array's original order
+        T[] input = Arrays.copyOf(rawInput, rawInput.length);
+
+        int lower = 0, upper = input.length-1;
+        while(upper > lower){
+            int j = NLogNSort.partition(input, lower, upper);
+            if(j < key){
+                lower = j + 1;
+            } else if(j > key){
+                upper = j - 1;
+            } else{
+                return input[key];
+            }
+        }
+
+        return input[key];
     }
 
 }
