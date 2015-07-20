@@ -3,10 +3,6 @@ package com.symonjin.sorting;
 
 public class NLogNSort extends Sort{
 
-    public static <T extends Comparable<? super T>> void mergeSort(T[] input) {
-        T[] auxilary = (T[]) new Comparable[input.length];
-        sort(input, auxilary, 0, input.length - 1);
-    }
 
     public static <T extends Comparable<? super T>> void merge(
             T[] input, T[] auxilary, int lower, int middle, int upper) {
@@ -33,6 +29,11 @@ public class NLogNSort extends Sort{
 
     }
 
+    public static <T extends Comparable<? super T>> void mergeSort(T[] input) {
+        T[] auxilary = (T[]) new Comparable[input.length];
+        sort(input, auxilary, 0, input.length - 1);
+    }
+
     public static <T extends Comparable<? super T>> void sort(
             T[] input, T[] auxilary, int lower, int upper) {
         if (upper <= lower) {
@@ -51,7 +52,19 @@ public class NLogNSort extends Sort{
         merge(input, auxilary, lower, middle, upper);
     }
 
+    public static <T extends Comparable<? super T>> void iterMergesort(T[] input) {
+        //Bottom-up mergesort -a non-recursive implementation
 
+        int N = input.length;
+        T[] auxilary = (T[]) new Comparable[N];
+
+        for(int size = 1; size < N; size *= 2){
+            for(int low = 0; low < N-size; low += (size*2)){
+                merge(input, auxilary, low, low+size-1, Math.min(low+2*size+1, N-1));
+            }
+        }
+
+    }
 
 
     public static <T extends Comparable<? super T>> void quickSort(Comparable[] input){

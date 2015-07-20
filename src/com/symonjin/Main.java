@@ -13,7 +13,7 @@ public class Main {
         }
         System.out.println();
 
-        NLogNSort.threeWayQuickSort(arr);
+        NLogNSort.iterMergesort(arr);
         for (Integer i : arr) {
             System.out.print(i + ", ");
         }
