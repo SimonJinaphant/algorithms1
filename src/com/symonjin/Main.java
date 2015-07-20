@@ -12,13 +12,10 @@ public class Main {
         }
         System.out.println();
 
-        NLogNSort.mergeSort(arr);
+        NLogNSort.quickSort(arr);
         for (Integer i : arr) {
             System.out.print(i + ", ");
         }
         System.out.println();
-
-        //System.out.println(Sums.threeSumsProblem(arr));
-
     }
 }

@@ -1,6 +1,8 @@
 package com.symonjin.sorting;
 
 
+import java.util.Comparator;
+
 public class NLogNSort {
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] input) {
@@ -49,6 +51,39 @@ public class NLogNSort {
         }
 
         merge(input, auxilary, lower, middle, upper);
+    }
+
+    public static <T extends Comparable<? super T>> int partition(
+            Comparable[] input, int lower, int upper){
+
+        //Lowerbound element is the pivoting element
+        int i = lower, j = upper + 1;
+        while(i <= j){
+            while(less(input[++i], input[lower])){
+                if(i == upper) break;
+            }
+            while(less(input[lower], input[--j])){
+                if(j == lower) break;
+            }
+            if(i >= j) break;
+            swap(input, i, j);
+        }
+
+        swap(input, lower, j);
+        return j;
+    }
+
+    public static <T extends Comparable<? super T>> void quickSort(Comparable[] input){
+        qsort(input, 0, input.length -1);
+    }
+
+    private static <T extends Comparable<? super T>> void qsort(
+            Comparable[] input, int lower, int upper){
+
+        if(upper <= lower) return;
+        int j = partition(input, lower, upper);
+        qsort(input, lower, j-1);
+        qsort(input, j+1, upper);
     }
 
 
