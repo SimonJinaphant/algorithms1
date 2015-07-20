@@ -1,6 +1,6 @@
 package com.symonjin.sorting;
 
-public class NSort {
+public class NSort extends Sort {
 
     public static <T extends Comparable<? super T>> void bubbleSort(T[] input) {
         boolean exchangeFlag = false;
@@ -42,15 +42,5 @@ public class NSort {
         }
     }
 
-
-    private static <T extends Comparable<? super T>> boolean less(T left, T right) {
-        return left.compareTo(right) == -1;
-    }
-
-    private static <T extends Comparable<? super T>> void swap(T[] input, int a, int b) {
-        T temp = input[a];
-        input[a] = input[b];
-        input[b] = temp;
-    }
 
 }

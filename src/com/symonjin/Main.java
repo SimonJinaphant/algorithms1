@@ -13,7 +13,7 @@ public class Main {
         }
         System.out.println();
 
-        System.out.println("Smallest kth item is: " + Search.quickSelect(arr, 4));
+        NLogNSort.threeWayQuickSort(arr);
         for (Integer i : arr) {
             System.out.print(i + ", ");
         }

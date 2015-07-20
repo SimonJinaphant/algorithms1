@@ -1,6 +1,6 @@
 package com.symonjin.algorithms;
 
-import com.symonjin.sorting.NLogNSort;
+import com.symonjin.sorting.Sort;
 
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ public class Search {
 
         int lower = 0, upper = input.length-1;
         while(upper > lower){
-            int j = NLogNSort.partition(input, lower, upper);
+            int j = Sort.partition(input, lower, upper);
             if(j < key){
                 lower = j + 1;
             } else if(j > key){

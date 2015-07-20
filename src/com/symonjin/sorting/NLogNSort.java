@@ -1,9 +1,7 @@
 package com.symonjin.sorting;
 
 
-import java.util.Comparator;
-
-public class NLogNSort {
+public class NLogNSort extends Sort{
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] input) {
         T[] auxilary = (T[]) new Comparable[input.length];
@@ -53,25 +51,8 @@ public class NLogNSort {
         merge(input, auxilary, lower, middle, upper);
     }
 
-    public static <T extends Comparable<? super T>> int partition(
-            Comparable[] input, int lower, int upper){
-        
-        //Lowerbound element is the pivoting element
-        int i = lower, j = upper + 1;
-        while(i <= j){
-            while(less(input[++i], input[lower])){
-                if(i == upper) break;
-            }
-            while(less(input[lower], input[--j])){
-                if(j == lower) break;
-            }
-            if(i >= j) break;
-            swap(input, i, j);
-        }
 
-        swap(input, lower, j);
-        return j;
-    }
+
 
     public static <T extends Comparable<? super T>> void quickSort(Comparable[] input){
         qsort(input, 0, input.length -1);
@@ -81,19 +62,38 @@ public class NLogNSort {
             Comparable[] input, int lower, int upper){
 
         if(upper <= lower) return;
-        int j = partition(input, lower, upper);
-        qsort(input, lower, j-1);
-        qsort(input, j+1, upper);
+        int j = Sort.partition(input, lower, upper);
+        qsort(input, lower, j - 1);
+        qsort(input, j + 1, upper);
     }
 
 
-    private static <T extends Comparable<? super T>> boolean less(T left, T right) {
-        return left.compareTo(right) == -1;
+
+    public static <T extends Comparable<? super T>> void threeWayQuickSort(T[] input){
+        threeWayQsort(input, 0, input.length -1);
     }
 
-    private static <T extends Comparable<? super T>> void swap(T[] input, int a, int b) {
-        T temp = input[a];
-        input[a] = input[b];
-        input[b] = temp;
+    private static <T extends Comparable<? super T>> void threeWayQsort(
+            T[] input, int lower, int upper){
+
+        if(upper <= lower) return;
+        int lesser = lower, greater = upper;
+        T pivot = input[lower];
+        int i = lower;
+
+        while(i <= greater){
+            int result = input[i].compareTo(pivot);
+            if(result < 0){
+                swap(input, lesser++, i++);
+            }else if (result > 0){
+                swap(input, i, greater--);
+            }else{
+                i++;
+            }
+        }
+
+        threeWayQsort(input, lower, lesser - 1);
+        threeWayQsort(input, greater + 1, upper);
     }
+
 }
