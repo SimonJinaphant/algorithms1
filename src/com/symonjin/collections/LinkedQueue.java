@@ -3,12 +3,13 @@ package com.symonjin.collections;
 
 public class LinkedQueue<T> extends Queue<T> {
 
+    //Maintain two pointers at both end linked list respectively
     Node head, tail;
     int size;
 
     @Override
     public void enqueue(T element) {
-        System.out.println("Enqueuing: " + element);
+        //Insert any new element at the @tail, unless the linked list is empty
         if (size == 0) {
             head = new Node(element);
             tail = head;
@@ -17,6 +18,7 @@ public class LinkedQueue<T> extends Queue<T> {
             tail.next = newNode;
             tail = newNode;
         }
+
         size++;
     }
 
@@ -27,15 +29,15 @@ public class LinkedQueue<T> extends Queue<T> {
             return null;
         }
 
-        T value = head.element;
-        Node newHead = head.next;
-        head = null;
-        head = newHead;
+        //Remove any element at the @head by reassigning the @head pointer to the
+        //next element and unlink the old @head from the new @head
+        Node n = head;
+        head = n.next;
+        n.next = null;
+
         size--;
 
-        System.out.println("Dequeuing " + value);
-
-        return value;
+        return n.element;
     }
 
     @Override
