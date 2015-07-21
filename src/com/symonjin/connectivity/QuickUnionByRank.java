@@ -47,7 +47,7 @@ public class QuickUnionByRank extends Connectivity {
         return findRoot(p) == findRoot(q);
     }
 
-    private int findRoot(int p){
+    private int findRoot(int p) {
         return findRoot(p, true);
     }
 
@@ -55,7 +55,7 @@ public class QuickUnionByRank extends Connectivity {
         //Iteratively find the root node
         while (p != parents[p]) {
 
-            if(pathHalving){
+            if (pathHalving) {
                 //Reduce intermediate connections by making each
                 //iterated node point to its grandparent (Optional)
                 p = parents[parents[p]];

@@ -21,7 +21,6 @@ public class LinkedStack<T> extends Stack<T> {
 
     @Override
     public void pop() {
-        //Save
         if (!isEmpty()) {
             //Reassign the @top element to the next node
             Node retrieved = top;

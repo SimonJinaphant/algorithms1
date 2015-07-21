@@ -43,7 +43,7 @@ public class QuickUnionBySize extends Connectivity {
         return findRoot(p) == findRoot(q);
     }
 
-    private int findRoot(int p){
+    private int findRoot(int p) {
         return findRoot(p, true);
     }
 
@@ -51,7 +51,7 @@ public class QuickUnionBySize extends Connectivity {
         //Iteratively find the root node
         while (p != parents[p]) {
 
-            if(pathHalving){
+            if (pathHalving) {
                 //Reduce intermediate connections by making each
                 //iterated node point to its grandparent (Optional)
                 p = parents[parents[p]];
@@ -63,7 +63,7 @@ public class QuickUnionBySize extends Connectivity {
         return p;
     }
 
-    private int findRootPC(int p){
+    private int findRootPC(int p) {
         //Find the root via a recursive implementation, while re-ordering connections
         if (p != parents[p]) {
             //Path compression: all traversed nodes will point to root at the end

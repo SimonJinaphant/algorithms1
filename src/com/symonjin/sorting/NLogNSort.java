@@ -1,7 +1,7 @@
 package com.symonjin.sorting;
 
 
-public class NLogNSort extends Sort{
+public class NLogNSort extends Sort {
 
 
     public static <T extends Comparable<? super T>> void merge(
@@ -53,54 +53,53 @@ public class NLogNSort extends Sort{
     }
 
     public static <T extends Comparable<? super T>> void iterMergesort(T[] input) {
-        //Bottom-up mergesort -a non-recursive implementation
+        //Bottom-up mergesort a non-recursive implementation
 
         int N = input.length;
         T[] auxilary = (T[]) new Comparable[N];
 
-        for(int size = 1; size < N; size *= 2){
-            for(int low = 0; low < N-size; low += (size*2)){
-                merge(input, auxilary, low, low+size-1, Math.min(low+2*size+1, N-1));
+        for (int size = 1; size < N; size *= 2) {
+            for (int low = 0; low < N - size; low += (size * 2)) {
+                merge(input, auxilary, low, low + size - 1, Math.min(low + 2 * size + 1, N - 1));
             }
         }
 
     }
 
 
-    public static <T extends Comparable<? super T>> void quickSort(Comparable[] input){
-        qsort(input, 0, input.length -1);
+    public static <T extends Comparable<? super T>> void quickSort(Comparable[] input) {
+        qsort(input, 0, input.length - 1);
     }
 
     private static <T extends Comparable<? super T>> void qsort(
-            Comparable[] input, int lower, int upper){
+            Comparable[] input, int lower, int upper) {
 
-        if(upper <= lower) return;
+        if (upper <= lower) return;
         int j = Sort.partition(input, lower, upper);
         qsort(input, lower, j - 1);
         qsort(input, j + 1, upper);
     }
 
 
-
-    public static <T extends Comparable<? super T>> void threeWayQuickSort(T[] input){
-        threeWayQsort(input, 0, input.length -1);
+    public static <T extends Comparable<? super T>> void threeWayQuickSort(T[] input) {
+        threeWayQsort(input, 0, input.length - 1);
     }
 
     private static <T extends Comparable<? super T>> void threeWayQsort(
-            T[] input, int lower, int upper){
+            T[] input, int lower, int upper) {
 
-        if(upper <= lower) return;
+        if (upper <= lower) return;
         int lesser = lower, greater = upper;
         T pivot = input[lower];
         int i = lower;
 
-        while(i <= greater){
+        while (i <= greater) {
             int result = input[i].compareTo(pivot);
-            if(result < 0){
+            if (result < 0) {
                 swap(input, lesser++, i++);
-            }else if (result > 0){
+            } else if (result > 0) {
                 swap(input, i, greater--);
-            }else{
+            } else {
                 i++;
             }
         }
