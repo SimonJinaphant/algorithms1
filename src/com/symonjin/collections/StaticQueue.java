@@ -5,7 +5,7 @@ package com.symonjin.collections;
     An implementation of a Queue via a static array
 
     Maintaining the FIFO characteristic:
-    We have a head pointer to "re-adjust" the array's starting point
+    We have a top pointer to "re-adjust" the array's starting point
  */
 public class StaticQueue<T> extends Queue<T> {
     T[] elements;
@@ -33,11 +33,11 @@ public class StaticQueue<T> extends Queue<T> {
 
     @Override
     public T dequeue() {
-        //Retrieve the data stored at the head since we're delete the node
+        //Retrieve the data stored at the top since we're delete the node
         T data = elements[headPointer];
 
         /*
-            Remove the head element and increment the head pointer;
+            Remove the top element and increment the top pointer;
             making the right adjacent element next for removal.
 
             If the increment goes out of bounds, make it wrap around
