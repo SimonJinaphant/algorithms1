@@ -23,30 +23,25 @@ public class DynamicStack<T> extends Stack<T> {
     @Override
     public void push(T data) {
         if (size == elements.length) {
-            System.out.print("Increasing stack size from " + elements.length);
-            T[] newElements = Arrays.copyOf(elements, size * 2);
-            elements = newElements;
-            System.out.print(" to " + elements.length + "\n");
+            //If the capacity is reached, double the capacity
+            elements = Arrays.copyOf(elements, size * 2);
         }
 
         elements[size++] = data;
-
     }
 
     @Override
     public void pop() {
         if (isEmpty()) {
-            System.err.println("Stack is empty...");
             return;
         }
 
+        //Erase item at the end of the array
         elements[--size] = null;
 
         if (size <= elements.length / 4) {
-            System.out.print("Decreasing stack size from " + elements.length);
-            T[] newElements = Arrays.copyOf(elements, Math.max(size, 1));
-            elements = newElements;
-            System.out.print(" to " + elements.length + "\n");
+            //System.out.print("Decreasing stack size from " + elements.length + " to "+ size);
+            elements = Arrays.copyOf(elements, Math.max(size, 1));
         }
     }
 

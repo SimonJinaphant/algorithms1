@@ -5,7 +5,12 @@ import java.util.Arrays;
 public class DynamicQueue<T> extends Queue<T> {
 
     T[] elements;
+
+    //Similar to the tail pointer, but can be used to keep track of the array's current size
+    //The tail index is always (head+size)
     int size = 0;
+
+    //The head pointer will change index when removing elements in order to maintain FIFO order
     int head = 0;
 
     public DynamicQueue() {
@@ -19,12 +24,12 @@ public class DynamicQueue<T> extends Queue<T> {
     @Override
     public void enqueue(T element) {
         if (size >= elements.length) {
-            System.out.println("Increasing size from " + size + " to " + size * 2);
-            T[] newElements = Arrays.copyOf(elements, size * 2);
-            elements = newElements;
+            //Double the capacity when the queue is completely full
+            //System.out.println("Increasing size from " + size + " to " + size * 2);
+            elements = Arrays.copyOf(elements, size * 2);
 
         } else {
-            System.out.println("Enqueuing " + element);
+            //Add new elements at the end of the queue, wrap around if necessary
             elements[(head + size) % elements.length] = element;
             size++;
         }
@@ -33,21 +38,23 @@ public class DynamicQueue<T> extends Queue<T> {
 
     @Override
     public T dequeue() {
+        //Remove elements at the @head and move the @head pointer one to the right
+        //Wrap pointer around if it goes out of bounds
         T data = elements[head];
         elements[head] = null;
+
         head = (head + 1) % elements.length;
         size--;
 
         if (size <= elements.length / 4 && elements.length / 4 > 0) {
-            System.out.print("Decreasing size from " + elements.length);
-            T[] newElements = Arrays.copyOfRange(elements, head, head + size);
-            elements = null;
-            elements = newElements;
-            System.out.print(" to " + elements.length + "\n");
+            //If the queue is only a quarter full, shrink the queue to match its current size
+            //System.out.print("Decreasing size from " + elements.length + " to "+ size);
+            elements = Arrays.copyOfRange(elements, head, head + size);
+
+            //Reset the head pointer to the actual start (due to Array.copyRange)
             head = 0;
         }
 
-        System.out.println("Dequeing " + data + " H:" + head + " S:" + size);
         return data;
     }
 
