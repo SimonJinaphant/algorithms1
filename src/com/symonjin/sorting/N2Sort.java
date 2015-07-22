@@ -2,10 +2,10 @@ package com.symonjin.sorting;
 
 public class N2Sort extends Sort {
 
-    /*
-        Bubble Sort:
-        For every iteration i: loop through the entire array by consecutive pairs.
-        If the pairing element are not in order, swap them.
+    /**
+     * Bubble Sort:
+     * For every iteration i: loop through the entire array by consecutive pairs,
+     * if the pairing element are not in order, swap them.
      */
     public static <T extends Comparable<? super T>> void bubbleSort(T[] input) {
         boolean exchangeFlag = false;
@@ -25,10 +25,10 @@ public class N2Sort extends Sort {
         }
     }
 
-    /*
-        Insertion sort:
-        For every iteration i, if the next element is smaller,
-        keep moving that element left until it is at its correct place.
+    /**
+     * Insertion sort:
+     * For every iteration i, if the next element is smaller,
+     * keep moving that element left until it is at its correct place.
      */
 
     public static <T extends Comparable<? super T>> void insertionSort(T[] input) {
@@ -42,9 +42,9 @@ public class N2Sort extends Sort {
 
     }
 
-    /*
-        Selection sort:
-        For every iteration i, find the smallest element and swap it with the element at i
+    /**
+     * Selection sort:
+     * For every iteration i, find the smallest element and swap it with the element at i
      */
     public static <T extends Comparable<? super T>> void selectionSort(T[] input) {
         for (int i = 0; i < input.length - 1; i++) {

@@ -7,12 +7,11 @@ import java.util.Arrays;
 public class Search {
 
 
-    /*
-        Goal: Find an element within a SORTED array
-
-        Solution: Since the array is sorted in order, we can keep dividing the range
-        into two halves to reduce the search
-
+    /**
+     * Goal: Efficiently find an element within a SORTED array
+     *
+     * Solution: Since the array is sorted in order, we can keep dividing
+     * the range into two halves to reduce the search
     */
     public static <T extends Comparable<? super T>> int binarySearch(T[] input, T key) {
 
@@ -43,14 +42,13 @@ public class Search {
     }
 
 
-    /*
-        Goal: Find the N'th smallest element within a given array, make sure it is scalable
-        to work with absurdly large input sizes.
-
-        Solution: Partition the array, but only focus on the necessary sub-array.
-        This is very similar to sorting, but only sorts a certain range to find the
-        smallest element.
-
+    /**
+     * Goal: Find the N'th smallest element within a given array,
+     * make sure it is scalable to work with absurdly large input sizes.
+     *
+     * Solution: Partition the array, but only focus on the necessary sub-array.
+     * This is very similar to sorting, but only sorts a certain range to find the
+     * smallest element.
      */
     public static <T extends Comparable<? super T>> T quickSelect(T[] rawInput, int N) {
         //Copy elements to preserve array's original order

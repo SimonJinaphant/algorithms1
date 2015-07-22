@@ -1,7 +1,7 @@
 package com.symonjin.collections;
 
-/*
-    An implementation of a Stack via a static array
+/**
+ * An implementation of a Stack via a static array
  */
 public class StaticStack<T> extends Stack<T> {
 

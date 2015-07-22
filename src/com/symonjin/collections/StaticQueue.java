@@ -1,11 +1,11 @@
 package com.symonjin.collections;
 
 
-/*
-    An implementation of a Queue via a static array
-
-    Maintaining the FIFO characteristic:
-    We have a top pointer to "re-adjust" the array's starting point
+/**
+ * An implementation of a Queue via a static array
+ *
+ * Maintaining the FIFO characteristic:
+ * We have a top pointer to "re-adjust" the array's starting point
  */
 public class StaticQueue<T> extends Queue<T> {
     T[] elements;
