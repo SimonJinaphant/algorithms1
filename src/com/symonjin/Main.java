@@ -1,5 +1,6 @@
 package com.symonjin;
 
+import com.symonjin.algorithms.Search;
 import com.symonjin.algorithms.Sums;
 
 public class Main {
@@ -12,10 +13,7 @@ public class Main {
         }
         System.out.println();
 
-        System.out.println(Sums.threeSumsProblem(arr));
-        for (Integer i : arr) {
-            System.out.print(i + ", ");
-        }
-        System.out.println();
+        Search.largestElements(arr, 3);
+        
     }
 }

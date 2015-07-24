@@ -2,7 +2,9 @@ package com.symonjin.algorithms;
 
 import com.symonjin.sorting.Sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class Search {
 
@@ -73,6 +75,28 @@ public class Search {
         }
 
         return input[N];
+    }
+
+    /**
+     * Goal: Find the largest M items in a stream of N items (N is too large to completely store)
+     *
+     * Solution: Implement a min-heap of M capacity, add items one-by-one and keep
+     * removing the smallest when the capacity is reached.
+     */
+    public static <T extends Comparable<? super T>> void largestElements(T[] input, int M){
+        PriorityQueue<T> minHeap = new PriorityQueue<>(M);
+
+        for(T element : input){
+            minHeap.add(element);
+            if(minHeap.size() > M){
+                minHeap.poll();
+            }
+        }
+
+        while(!minHeap.isEmpty()){
+            System.out.println(minHeap.poll());
+        }
+
     }
 
 }
