@@ -1,19 +1,21 @@
 package com.symonjin;
 
-import com.symonjin.algorithms.Search;
-import com.symonjin.algorithms.Sums;
+import com.symonjin.collections.BinaryMaxHeap;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Integer[] arr = {50, 234, 10, 20, -30, 39, 2};
-        for (Integer i : arr) {
-            System.out.print(i + ", ");
-        }
-        System.out.println();
+        BinaryMaxHeap heap = new BinaryMaxHeap(arr.length);
 
-        Search.largestElements(arr, 3);
+        for (Integer i : arr) {
+            heap.insert(i);
+        }
+
+        while (!heap.isEmpty()){
+            System.out.println(heap.removeMax());
+        }
         
     }
 }

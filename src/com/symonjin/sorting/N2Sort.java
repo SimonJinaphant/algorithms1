@@ -30,7 +30,6 @@ public class N2Sort extends Sort {
      * For every iteration i, if the next element is smaller,
      * keep moving that element left until it is at its correct place.
      */
-
     public static <T extends Comparable<? super T>> void insertionSort(T[] input) {
         for (int i = 1; i < input.length; i++) {
             int j = i;
