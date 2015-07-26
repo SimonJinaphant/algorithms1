@@ -14,7 +14,8 @@ public class Main {
         }
 
         while (!heap.isEmpty()){
-            System.out.println(heap.removeMax());
+            System.out.println(heap.getMaxElement());
+            heap.removeMax();
         }
         
     }

@@ -3,6 +3,11 @@ package com.symonjin.collections;
 /**
  * An implementation of a Binary Heap, where the largest element
  * is always the top element in order to provide quick access and removal.
+ *
+ * Inserts at log O(log N) time
+ * Removes max element at O(log N) time
+ * Gets the max element at O(1) time
+ *
  */
 public class BinaryMaxHeap<T extends Comparable<? super T>> {
 
@@ -48,17 +53,23 @@ public class BinaryMaxHeap<T extends Comparable<? super T>> {
      * Removes the max element currently located at the top of the heap
      * and reorder the heap if necessary, to maintain max-heap order
      *
-     * @return The max element on the heap
      */
-    public T removeMax(){
+    public void removeMax(){
         //Swap the max node with a leaf node and sink the leaf downwards
-        T max = elements[1];
         swap(1, size--);        //Make sure size decreases to avoid confusion
         sink(1);
 
         //Remove reference to the max element secretly stored at the old @size position
         elements[size+1] = null;
-        return max;
+    }
+
+    /**
+     * Gets the value of the max element
+     * @return The max element on the heap
+     */
+
+    public T getMaxElement(){
+        return elements[1];
     }
 
 
