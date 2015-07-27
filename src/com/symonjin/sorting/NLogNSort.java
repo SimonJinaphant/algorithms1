@@ -1,5 +1,7 @@
 package com.symonjin.sorting;
 
+import com.symonjin.collections.BinaryMaxHeap;
+
 import java.util.Arrays;
 
 public class NLogNSort extends Sort {
