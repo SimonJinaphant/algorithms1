@@ -1,12 +1,10 @@
 package com.symonjin.collections;
 
-import java.util.Comparator;
 
 public abstract class BinaryHeap<T extends Comparable<? super T>> {
 
     T[] elements;
     int size;
-    Comparator<T> comparator;
 
     /**
      * Construct the BinaryHeap with a given initial capacity
@@ -14,10 +12,9 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @param capacity The initial size of the heap
      */
-    public BinaryHeap(int capacity, Comparator<T> comparator){
+    public BinaryHeap(int capacity){
         elements = (T[]) new Comparable[capacity + 1];
         size = 0;
-        this.comparator = comparator;
     }
 
 
@@ -62,7 +59,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      * @return The chosen element on the heap
      */
 
-    public T getMaxElement(){
+    public T top(){
         return elements[1];
     }
 
@@ -74,7 +71,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      * @param index The starting index to test for heap invariants
      */
     private void swim(int index){
-        while (index > 1 && less(index/2, index)){
+        while (index > 1 && compare(index / 2, index)){
             swap(index/2, index);
             index /= 2;
         }
@@ -93,12 +90,12 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
         while(index * 2 <= size){
 
             int childIndex = 2 * index;
-            if(childIndex < size && less(childIndex, childIndex+1)){
+            if(childIndex < size && compare(childIndex, childIndex + 1)){
                 //Right child has higher priority than the left child, making it ideal to swap with
                 childIndex++;
             }
 
-            if(!less(index, childIndex)){
+            if(!compare(index, childIndex)){
                 //Heap is already in order
                 break;
             }
@@ -109,9 +106,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
     }
 
 
-    private boolean less(int leftIndex, int rightIndex){
-        return comparator.compare(elements[leftIndex], elements[rightIndex]) == -1;
-    }
+    protected abstract boolean compare(int leftIndex, int rightIndex);
 
     /**
      * Swaps the elements at the specified indices

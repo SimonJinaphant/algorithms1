@@ -80,7 +80,7 @@ public class NLogNSort extends Sort {
      * Quicksort:
      * Recursively partition an array until it becomes 100% sorted.
      * In theory quicksort has more comparisons than mergesort,
-     * but in practice it moves less data, making it faster in many situations.
+     * but in practice it moves compare data, making it faster in many situations.
      */
     public static <T extends Comparable<? super T>> void quickSort(T[] input) {
         qsort(input, 0, input.length - 1);
