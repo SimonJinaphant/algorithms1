@@ -6,7 +6,7 @@ public class Sort {
      * Goal: Organize an array such that for an arbitrarily selected element,
      * all elements to its left are smaller, and elements to its right are larger.
      * Remaining elements do not have 100% sorted.
-     *
+     * <p>
      * Solution: Partition the array by selecting a pivoting element and
      * reorganizing elements relative to that pivot
      */

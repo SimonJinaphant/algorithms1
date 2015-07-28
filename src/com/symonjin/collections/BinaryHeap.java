@@ -12,7 +12,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @param capacity The initial size of the heap
      */
-    public BinaryHeap(int capacity){
+    public BinaryHeap(int capacity) {
         elements = (T[]) new Comparable[capacity + 1];
         size = 0;
     }
@@ -23,7 +23,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @return a flag indicating whether the heap is empty or not
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
@@ -34,7 +34,7 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @param element The element to be inserted into the heap
      */
-    public void insert(T element){
+    public void insert(T element) {
         elements[++size] = element;
         swim(size);
     }
@@ -43,23 +43,23 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
     /**
      * Removes the chosen element currently located at the top of the heap
      * and reorder the heap if necessary, to maintain heap order
-     *
      */
-    public void pop(){
+    public void pop() {
         //Swap the max node with a leaf node and sink the leaf downwards
         swap(1, size--);        //Make sure size decreases to avoid confusion
         sink(1);
 
         //Remove reference to the max element secretly stored at the old @size position
-        elements[size+1] = null;
+        elements[size + 1] = null;
     }
 
     /**
      * Gets the value of the chosen element
+     *
      * @return The chosen element on the heap
      */
 
-    public T top(){
+    public T top() {
         return elements[1];
     }
 
@@ -70,9 +70,9 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @param index The starting index to test for heap invariants
      */
-    private void swim(int index){
-        while (index > 1 && compare(index / 2, index)){
-            swap(index/2, index);
+    private void swim(int index) {
+        while (index > 1 && compare(index / 2, index)) {
+            swap(index / 2, index);
             index /= 2;
         }
     }
@@ -84,18 +84,18 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      *
      * @param index The starting index to test for heap invariants
      */
-    protected void sink(int index){
+    protected void sink(int index) {
 
         //If the node has a child, re-adjust the heap to maintain order
-        while(index * 2 <= size){
+        while (index * 2 <= size) {
 
             int childIndex = 2 * index;
-            if(childIndex < size && compare(childIndex, childIndex + 1)){
+            if (childIndex < size && compare(childIndex, childIndex + 1)) {
                 //Right child has higher priority than the left child, making it ideal to swap with
                 childIndex++;
             }
 
-            if(!compare(index, childIndex)){
+            if (!compare(index, childIndex)) {
                 //Heap is already in order
                 break;
             }

@@ -6,7 +6,7 @@ public class Sums {
 
     /**
      * Goal: Given an array of numbers, find the amount of triples that add up to 0
-     *
+     * <p>
      * Solution: For every possible pair, use binary search to find
      * the number than makes it add to 0.
      */

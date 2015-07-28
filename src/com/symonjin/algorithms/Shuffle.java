@@ -9,7 +9,7 @@ public class Shuffle {
 
     /**
      * Goal: Randomly shuffle an array within O(N) time
-     *
+     * <p>
      * Solution: Iterate through the array, for every iteration i: randomly
      * generate a number r between [0, i] or [i, N) and swap the elements
      * at position i and r.

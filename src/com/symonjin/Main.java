@@ -1,6 +1,7 @@
 package com.symonjin;
 
-import com.symonjin.collections.*;
+import com.symonjin.collections.BinaryHeap;
+import com.symonjin.collections.BinaryMaxHeap;
 
 public class Main {
 
@@ -13,10 +14,10 @@ public class Main {
             heap.insert(i);
         }
 
-        while (!heap.isEmpty()){
+        while (!heap.isEmpty()) {
             System.out.println(heap.top());
             heap.pop();
         }
-        
+
     }
 }

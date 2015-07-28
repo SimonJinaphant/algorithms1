@@ -2,7 +2,6 @@ package com.symonjin.algorithms;
 
 import com.symonjin.sorting.Sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
@@ -11,10 +10,10 @@ public class Search {
 
     /**
      * Goal: Efficiently find an element within a SORTED array
-     *
+     * <p>
      * Solution: Since the array is sorted in order, we can keep dividing
      * the range into two halves to reduce the search
-    */
+     */
     public static <T extends Comparable<? super T>> int binarySearch(T[] input, T key) {
 
         int lowerBound = 0;
@@ -47,7 +46,7 @@ public class Search {
     /**
      * Goal: Find the N'th smallest element within a given array,
      * make sure it is scalable to work with absurdly large input sizes.
-     *
+     * <p>
      * Solution: Partition the array, but only focus on the necessary sub-array.
      * This is very similar to sorting, but only sorts a certain range to find the
      * smallest element.
@@ -79,21 +78,21 @@ public class Search {
 
     /**
      * Goal: Find the largest M items in a stream of N items (N is too large to completely store)
-     *
+     * <p>
      * Solution: Implement a min-heap of M capacity, add items one-by-one and keep
      * removing the smallest when the capacity is reached.
      */
-    public static <T extends Comparable<? super T>> void largestElements(T[] input, int M){
+    public static <T extends Comparable<? super T>> void largestElements(T[] input, int M) {
         PriorityQueue<T> minHeap = new PriorityQueue<>(M);
 
-        for(T element : input){
+        for (T element : input) {
             minHeap.add(element);
-            if(minHeap.size() > M){
+            if (minHeap.size() > M) {
                 minHeap.poll();
             }
         }
 
-        while(!minHeap.isEmpty()){
+        while (!minHeap.isEmpty()) {
             System.out.println(minHeap.poll());
         }
 
