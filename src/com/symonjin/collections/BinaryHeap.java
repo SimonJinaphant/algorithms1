@@ -1,6 +1,8 @@
 package com.symonjin.collections;
 
 
+import java.util.Arrays;
+
 public abstract class BinaryHeap<T extends Comparable<? super T>> {
 
     T[] elements;
@@ -10,10 +12,9 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      * Construct the BinaryHeap with a given initial capacity
      * The chosen element will be located at index 1 to simplify index arithmetic
      *
-     * @param capacity The initial size of the heap
      */
-    public BinaryHeap(int capacity) {
-        elements = (T[]) new Comparable[capacity + 1];
+    public BinaryHeap() {
+        elements = (T[]) new Comparable[2];
         size = 0;
     }
 
@@ -35,8 +36,16 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
      * @param element The element to be inserted into the heap
      */
     public void insert(T element) {
+
+        //Double the capacity, may still be buggy due to 1 offset
+        if(size + 1 >= elements.length){
+            elements = Arrays.copyOf(elements, size+1 * 2);
+        }
+
         elements[++size] = element;
         swim(size);
+
+
     }
 
 
@@ -51,6 +60,11 @@ public abstract class BinaryHeap<T extends Comparable<? super T>> {
 
         //Remove reference to the max element secretly stored at the old @size position
         elements[size + 1] = null;
+
+        //Decrease size, may still be buggy due to 1 offset
+        if(size + 1 == elements.length/4){
+            elements = Arrays.copyOf(elements, Math.max(2, size + 1));
+        }
     }
 
     /**

@@ -10,9 +10,6 @@ package com.symonjin.collections;
  */
 public class BinaryMinHeap<T extends Comparable<? super T>> extends BinaryHeap<T> {
 
-    public BinaryMinHeap(int capacity) {
-        super(capacity);
-    }
 
     /**
      * Determines if the left element is greater than the right element
