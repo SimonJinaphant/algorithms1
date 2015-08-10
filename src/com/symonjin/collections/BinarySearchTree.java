@@ -24,8 +24,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
             currentNode.value = value;
         }
 
+        //Update the node's count for deletion
+        currentNode.count = 1 + size(currentNode.left) + size(currentNode.right);
+
         //The node already exist, but needed updating, therefore we
-        //return the existing pointer.
+        //return the existing pointer to keep the links originally.
         return currentNode;
     }
 
@@ -47,6 +50,17 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         }
 
         return null;
+    }
+
+    public int size(){
+        return size(root);
+    }
+
+    public int size(Node currentNode){
+        if(currentNode == null){
+            return 0;
+        }
+        return currentNode.count;
     }
 
     public void delete(K key){
@@ -74,6 +88,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         private K key;
         private V value;
         private Node left, right;
+        private int count;
 
         public Node(K key, V value){
             this.key = key;
