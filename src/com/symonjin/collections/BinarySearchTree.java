@@ -4,6 +4,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
 
     private Node root;
 
+    /**
+     * Inserts a key-value pair into the binary tree, replacing
+     * the previous value if it already exists, or creating a
+     * new node if it does not exist yet.
+     */
     public void put(K key, V value){
         root = put(root, key, value);
     }
@@ -32,6 +37,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return currentNode;
     }
 
+    /**
+     * Retrieves the value from the given key, returning the value
+     * or null if the key does not exist.
+     */
     public V get(K key){
         Node currentNode = root;
 
@@ -52,11 +61,14 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return null;
     }
 
+    /**
+     * Returns the size of the tree
+     */
     public int size(){
         return size(root);
     }
 
-    public int size(Node currentNode){
+    private int size(Node currentNode){
         if(currentNode == null){
             return 0;
         }
@@ -67,6 +79,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         //TODO
     }
 
+    /**
+     * Returns the largest key value within the tree,
+     * which is the right-most node
+     */
     public V getMin(){
         Node current = root;
         while(current.right != null){
@@ -75,6 +91,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return current.value;
     }
 
+    /**
+     * Returns the smallest key value within the tree,
+     * which is the left-most node
+     */
     public V getMax(){
         Node current = root;
         while(current.left != null){
