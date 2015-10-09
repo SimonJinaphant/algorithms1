@@ -103,6 +103,19 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return current.value;
     }
 
+ 
+    public void deleteMin(){
+        root = deleteMin(root);
+    }
+
+    private Node deleteMin(Node node){
+        if(node.left == null){
+            return node.right;
+        }
+        node.left = deleteMin(node.left);
+        node.count = 1 + size(node.left) + size(node.right);
+        return node;
+    }
 
     private class Node{
         private K key;
