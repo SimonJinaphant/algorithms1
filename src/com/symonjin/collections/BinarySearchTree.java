@@ -103,11 +103,19 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return current.value;
     }
 
- 
+    /**
+     * Deletes the smallest node (the bottom-leftmost node)
+     * in the tree
+     */
     public void deleteMin(){
         root = deleteMin(root);
     }
 
+    /**
+     * Goto the bottom-leftmost node and replace the min node's
+     * parent left link with the min node's right link to preserve
+     * any nodes that are right childs on the min node.
+     */
     private Node deleteMin(Node node){
         if(node.left == null){
             return node.right;
