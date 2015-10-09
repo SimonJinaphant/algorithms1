@@ -1,5 +1,6 @@
 package com.symonjin.collections;
 
+
 public class BinarySearchTree<K extends Comparable<K>, V> {
 
     private Node root;
@@ -75,20 +76,21 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return currentNode.count;
     }
 
-    public void delete(K key){
-        //TODO
-    }
 
     /**
      * Returns the largest key value within the tree,
      * which is the right-most node
      */
     public V getMin(){
-        Node current = root;
+        return getMin(root).value;
+    }
+
+    public Node getMin(Node node){
+        Node current = node;
         while(current.right != null){
             current = current.right;
         }
-        return current.value;
+        return current;
     }
 
     /**
@@ -122,6 +124,48 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         }
         node.left = deleteMin(node.left);
         node.count = 1 + size(node.left) + size(node.right);
+        return node;
+    }
+
+    /**
+     * Delete the node with the given key
+     */
+    public void delete(K key){
+        root = delete(root, key);
+    }
+
+    /**
+     * Find the node to delete and adjust the BST
+     */
+    private Node delete(Node node, K key){
+        if(node == null){
+            return null;
+        }
+
+        int result = key.compareTo(node.key);
+        if(result < 0){
+            //Current node's key is larger, goto the left node
+            node.left = delete(node.left, key);
+        }else if (result > 0){
+            //Current node's key is smaller, goto right node
+            node.right = delete(node.right, key);
+        }else{
+            //Found the node to delete
+
+            //If node has no right child, set parent's link to left
+            if(node.right == null) return node.left;
+            //If node has no left child, set parent's link to right
+            if(node.left == null) return node.right;
+
+            //Node has two child node, need to replace with
+            //successor node
+            Node temp = node;
+            node = getMin(temp.right);
+            node.right = deleteMin(temp.right);
+            node.left = temp.left;
+        }
+        node.count = 1 + size(node.left) + size(node.right);
+
         return node;
     }
 
