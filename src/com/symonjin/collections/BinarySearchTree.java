@@ -98,11 +98,15 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
      * which is the left-most node
      */
     public V getMax(){
-        Node current = root;
+        return getMax(root).value;
+    }
+
+    public Node getMax(Node node){
+        Node current = node;
         while(current.left != null){
             current = current.left;
         }
-        return current.value;
+        return current;
     }
 
     /**
