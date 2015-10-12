@@ -19,7 +19,33 @@ public class Tree<K, V> {
         preOrderTraversal(current.right);
     }
 
+    public void inOrderTraversal(){
+        preOrderTraversal(root);
+    }
 
+    protected void inOrderTraversal(Node current){
+        if(current == null){
+            return;
+        }
+
+        preOrderTraversal(current.left);
+        System.out.println(current.value);
+        preOrderTraversal(current.right);
+    }
+
+    public void postOrderTraversal(){
+        preOrderTraversal(root);
+    }
+
+    protected void postOrderTraversal(Node current){
+        if(current == null){
+            return;
+        }
+        preOrderTraversal(current.left);
+        preOrderTraversal(current.right);
+        System.out.println(current.value);
+
+    }
 
     private Node root;
 
