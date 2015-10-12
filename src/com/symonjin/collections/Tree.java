@@ -20,7 +20,7 @@ public class Tree<K, V> {
     }
 
     public void inOrderTraversal(){
-        preOrderTraversal(root);
+        inOrderTraversal(root);
     }
 
     protected void inOrderTraversal(Node current){
@@ -34,7 +34,7 @@ public class Tree<K, V> {
     }
 
     public void postOrderTraversal(){
-        preOrderTraversal(root);
+        postOrderTraversal(root);
     }
 
     protected void postOrderTraversal(Node current){
