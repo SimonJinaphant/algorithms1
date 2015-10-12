@@ -1,9 +1,6 @@
 package com.symonjin.collections;
 
-
-public class BinarySearchTree<K extends Comparable<K>, V> {
-
-    private Node root;
+public class BinarySearchTree<K extends Comparable<K>, V> extends Tree<K,V>{
 
     /**
      * Insert a new key-value pair into the binary tree, replacing
@@ -139,6 +136,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
 
     /**
      * Find the node to delete and adjust the BST
+     * TODO: FIX THE CODE, STILL DOESN'T WORK
      */
     private Node delete(Node node, K key){
         if(node == null){
@@ -172,15 +170,5 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return node;
     }
 
-    private class Node{
-        private K key;
-        private V value;
-        private Node left, right;
-        private int count;
 
-        public Node(K key, V value){
-            this.key = key;
-            this.value = value;
-        }
-    }
 }
