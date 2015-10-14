@@ -14,10 +14,9 @@ public class Main {
         tree.put(4, "Four");
         tree.put(50, "Fifty");
         tree.put(20, "Twenty");
-        tree.deleteMin();
-        System.out.println(tree.getMax());
-        System.out.println(tree.getMin());
+        tree.delete(3);
         tree.inOrderTraversal();
+
 
     }
 }
