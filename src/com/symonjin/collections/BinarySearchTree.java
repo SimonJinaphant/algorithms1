@@ -131,6 +131,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends Tree<K,V>{
      * Delete the node with the given key
      */
     public void delete(K key){
+        if(key == root.key){
+            System.err.println("Cannot delete tree's root node");
+            return;
+        }
         root = delete(root, key);
     }
 
