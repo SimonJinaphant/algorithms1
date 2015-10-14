@@ -139,8 +139,8 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends Tree<K,V>{
     }
 
     /**
-     * Find the node to delete and adjust the BST
-     * TODO: FIX THE CODE, STILL DOESN'T WORK
+     * Delete the given node with the corresponding key,
+     * readjusting the tree if required.
      */
     private Node delete(Node node, K key){
         if(node == null){
