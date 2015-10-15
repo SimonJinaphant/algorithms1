@@ -15,6 +15,9 @@ public class NLogNSort extends Sort {
     }
 
 
+    /**
+     * Merge two sorted arrays into a single large sorted array
+     */
     public static <T extends Comparable<? super T>> void merge(
             T[] input, T[] auxiliary, int lower, int middle, int upper) {
 
@@ -38,7 +41,10 @@ public class NLogNSort extends Sort {
 
     }
 
-
+    /**
+     * Recursively divides the array into two halves, the halves are not required to
+     * be exactly the same length. Also calls merge() on its way back up the stack call
+     */
     public static <T extends Comparable<? super T>> void sort(
             T[] input, T[] auxiliary, int lower, int upper) {
         //Recursion base case: sub-array has only 1 element
