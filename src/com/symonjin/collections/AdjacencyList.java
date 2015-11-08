@@ -1,22 +1,33 @@
 package com.symonjin.collections;
 
-import java.util.List;
+import java.util.Set;
+import java.util.LinkedList;
+import java.util.HashMap;
 
 /**
  * Created by Simon on 2015-11-07.
  */
 public class AdjacencyList implements Graph {
 
-    public void addVertex(Vertex v){
+    HashMap<Vertex, LinkedList<Vertex>> adjList;
 
+    public AdjacencyList(){
+        adjList = new HashMap<>();
+    }
+
+    public void addVertex(Vertex v){
+        adjList.putIfAbsent(v, new LinkedList<>());
     }
 
     public void addEdge(Vertex a, Vertex b){
-
+        if(!adjList.containsKey(a)){
+            throw new RuntimeException("Vertex "+a+" does not exist in the graph");
+        }
+        adjList.get(a).add(b);
     }
 
-    public List<Vertex> getVertices(){
-        return null;
+    public Set<Vertex> getVertices(){
+        return adjList.keySet();
     }
 
 
