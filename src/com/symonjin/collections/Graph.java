@@ -1,6 +1,6 @@
 package com.symonjin.collections;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Simon on 2015-11-07.
@@ -11,6 +11,6 @@ public interface Graph {
 
     void addEdge(Vertex a, Vertex b);
 
-    List<Vertex> getVertices();
+    Set<Vertex> getVertices();
 
 }
