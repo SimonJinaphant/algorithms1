@@ -26,6 +26,13 @@ public class AdjacencyList implements Graph {
         adjList.get(a).add(b);
     }
 
+    public boolean hasEdge(Vertex a, Vertex b){
+        if(!adjList.containsKey(a)){
+            throw new RuntimeException("Vertex "+a+" does not exist in the graph");
+        }
+        return adjList.get(a).contains(b);
+    }
+
     public Set<Vertex> getVertices(){
         return adjList.keySet();
     }

@@ -25,6 +25,13 @@ public class AdjacencyMatrix implements Graph {
         matrix.get(aPosition).set(bPosition, true);
     }
 
+    public boolean hasEdge(Vertex a, Vertex b){
+        int aPosition = ordering.indexOf(a);
+        int bPosition = ordering.indexOf(b);
+
+        return matrix.get(aPosition).get(bPosition);
+    }
+
     public Set<Vertex> getVertices(){
         HashSet<Vertex> vertices = new HashSet<>();
         vertices.addAll(ordering);
