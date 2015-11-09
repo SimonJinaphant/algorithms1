@@ -11,6 +11,8 @@ public interface Graph {
 
     void addEdge(Vertex a, Vertex b);
 
+    boolean hasEdge(Vertex a, Vertex b);
+
     Set<Vertex> getVertices();
 
 }
