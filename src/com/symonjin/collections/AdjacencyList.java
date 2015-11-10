@@ -9,11 +9,8 @@ import java.util.HashMap;
  */
 public class AdjacencyList implements Graph {
 
-    HashMap<Vertex, LinkedList<Vertex>> adjList;
-
-    public AdjacencyList(){
-        adjList = new HashMap<>();
-    }
+    HashMap<Vertex, LinkedList<Vertex>> adjList = new HashMap<>();
+    
 
     public void addVertex(Vertex v){
         adjList.putIfAbsent(v, new LinkedList<>());

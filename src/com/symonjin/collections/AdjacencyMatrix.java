@@ -8,7 +8,7 @@ import java.util.*;
 public class AdjacencyMatrix implements Graph {
 
     private ArrayList<Vertex> ordering = new ArrayList<>();
-    private ArrayList<BitSet> matrix;
+    private ArrayList<BitSet> matrix = new ArrayList<>();
 
     public void addVertex(Vertex v){
         if(!ordering.contains(v)){
