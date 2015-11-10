@@ -11,11 +11,13 @@ public class AdjacencyMatrix implements Graph {
     private ArrayList<BitSet> matrix;
 
     public void addVertex(Vertex v){
-        ordering.add(v);
-        for(BitSet row : matrix){
-            row.set(ordering.size(), false);
+        if(!ordering.contains(v)){
+            ordering.add(v);
+            for(BitSet row : matrix){
+                row.set(ordering.size(), false);
+            }
+            matrix.add(new BitSet(ordering.size()));
         }
-        matrix.add(new BitSet(ordering.size()));
     }
 
     public void addEdge(Vertex a, Vertex b){
