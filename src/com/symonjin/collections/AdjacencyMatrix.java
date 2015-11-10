@@ -21,15 +21,15 @@ public class AdjacencyMatrix implements Graph {
     }
 
     public void addEdge(Vertex a, Vertex b){
-        int aPosition = ordering.indexOf(a);
-        int bPosition = ordering.indexOf(b);
+        int aPosition = getOrdering(a);
+        int bPosition = getOrdering(b);
 
         matrix.get(aPosition).set(bPosition, true);
     }
 
     public boolean hasEdge(Vertex a, Vertex b){
-        int aPosition = ordering.indexOf(a);
-        int bPosition = ordering.indexOf(b);
+        int aPosition = getOrdering(a);
+        int bPosition = getOrdering(b);
 
         return matrix.get(aPosition).get(bPosition);
     }
@@ -38,6 +38,14 @@ public class AdjacencyMatrix implements Graph {
         HashSet<Vertex> vertices = new HashSet<>();
         vertices.addAll(ordering);
         return vertices;
+    }
+
+    private int getOrdering(Vertex v){
+        int position = ordering.indexOf(v);
+        if(position < 0){
+            throw new RuntimeException("Vertex " + v + " does not exist in this graph");
+        }
+        return position;
     }
 
 }
