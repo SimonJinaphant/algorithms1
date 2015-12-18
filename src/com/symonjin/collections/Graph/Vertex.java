@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.graph;
 
 /**
  * Created by Simon on 2015-11-07.

@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.tree;
 
 /**
  * Created by Simon on 2015-10-11.

@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.queue;
 
 public abstract class Queue<T> {
 

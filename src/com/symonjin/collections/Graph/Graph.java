@@ -1,4 +1,6 @@
-package com.symonjin.collections;
+package com.symonjin.collections.graph;
+
+import com.symonjin.collections.graph.Vertex;
 
 import java.util.Set;
 

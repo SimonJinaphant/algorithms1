@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.stack;
 
 public class LinkedStack<T> extends Stack<T> {
 

@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.tree;
 
 public class BinarySearchTree<K extends Comparable<K>, V> extends Tree<K,V>{
 

@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.stack;
 
 public abstract class Stack<T> {
 

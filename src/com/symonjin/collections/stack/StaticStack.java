@@ -1,4 +1,6 @@
-package com.symonjin.collections;
+package com.symonjin.collections.stack;
+
+import com.symonjin.collections.stack.Stack;
 
 /**
  * An implementation of a Stack via a static array

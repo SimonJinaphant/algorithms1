@@ -1,4 +1,4 @@
-package com.symonjin.collections;
+package com.symonjin.collections.heap;
 
 /**
  * An implementation of a Binary Heap, where the largest element

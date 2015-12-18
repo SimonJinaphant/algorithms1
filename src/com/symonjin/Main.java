@@ -1,8 +1,6 @@
 package com.symonjin;
 
-import com.symonjin.collections.BinaryHeap;
-import com.symonjin.collections.BinaryMinHeap;
-import com.symonjin.collections.BinarySearchTree;
+import com.symonjin.collections.tree.BinarySearchTree;
 
 public class Main {
 
